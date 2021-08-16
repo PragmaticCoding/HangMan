@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'ca.pragmaticcoding'
+version '1.0-SNAPSHOT'
+
+
+def javaFXPlatform = "linux"
+def javaFXVersion = '16'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.openjfx:javafx-base:${javaFXVersion}:${javaFXPlatform}"
+    implementation "org.openjfx:javafx-controls:${javaFXVersion}:${javaFXPlatform}"
+    implementation "org.openjfx:javafx-graphics:${javaFXVersion}:${javaFXPlatform}"
+    implementation group: 'com.konghq', name: 'unirest-java', version: '3.11.11'
+    implementation group: 'com.konghq', name: 'unirest-object-mappers-gson', version: '3.11.11'
+//    compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+application {
+    mainModule.set('ca.pragmaticcoding.hangman')
+    mainClass.set('ca.pragmaticcoding.hangman.Main')
+}
+
+test {
+    useJUnitPlatform()
+}
+
