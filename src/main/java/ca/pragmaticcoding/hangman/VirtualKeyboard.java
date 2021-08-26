@@ -24,11 +24,12 @@ public class VirtualKeyboard extends VBox {
     public VirtualKeyboard(Consumer<String> keystrokeConsumer, Runnable restartHandler) {
         this.keystrokeConsumer = keystrokeConsumer;
         this.restartHandler = restartHandler;
+        setSpacing(4);
         getChildren().addAll(createRow(row1Keys, 0d, false), createRow(row2Keys, 20d, false), createRow(row3Keys, 40d, true));
     }
 
     private HBox createRow(List<String> letters, Double leftPadding, boolean includeRestart) {
-        HBox hBox = new HBox();
+        HBox hBox = new HBox(6);
         hBox.getChildren().addAll(letters.stream().map(this::buttonSetup).collect(Collectors.toList()));
         if (includeRestart) {
             hBox.getChildren().add(createRestartKey());

@@ -59,7 +59,7 @@ public class HangmanViewBuilder implements Builder<Region> {
 
     private Node createCentre() {
         StackPane winLosePane = new StackPane(createImageView("/images/win.png", model.gameWonProperty()),
-                                              createImageView("/images/lose.jpg", model.gameLostProperty()));
+                                              createImageView("/images/lose.png", model.gameLostProperty()));
         wordBox.setAlignment(Pos.BOTTOM_CENTER);
         wordBox.setMinHeight(70);
         wordBox.setPadding(new Insets(0, 0, 10, 0));
